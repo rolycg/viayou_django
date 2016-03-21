@@ -16,10 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
+from MainViayou import views
 from django.conf.urls.static import static
+from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^change-language/?$', views.change_language, name='change_language'),
+    url(r'^$', views.home, name='home')
 ]
 
 if settings.DEBUG:

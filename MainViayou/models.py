@@ -115,3 +115,43 @@ class ContainedIn(models.Model):
 
     def __str__(self):
         return str(self.min) + 'x' + str(self.max) + str(self.measure)
+
+
+class Questions(TranslatableModel):
+    class Meta:
+        verbose_name = _('Question')
+        verbose_name_plural = _('Questions')
+
+    translations = TranslatedFields(
+        text=models.TextField(verbose_name=_('Question'), max_length=500, help_text=_('Text for the question'))
+    )
+
+
+class Answers(TranslatableModel):
+    class Meta:
+        verbose_name = _('Answer')
+        verbose_name_plural = _('Answers')
+
+    translations = TranslatedFields(
+        text=models.TextField(verbose_name=_('Answer'), max_length=500, help_text=_('Text for the answer'))
+    )
+
+    question = models.ForeignKey('Questions', verbose_name=_('Question'), related_name='answers',
+                                 help_text=_("Question associated"))
+
+
+customers = (
+    (_('Clients'), 'clients'),
+    (_('Travelers'), 'travelers')
+)
+
+
+class Advices(TranslatableModel):
+    class Meta:
+        verbose_name = _('Advice')
+        verbose_name_plural = _('Advices')
+
+    translations = TranslatedFields(
+        text=models.TextField(verbose_name=_('Advice'), max_length=500),
+        customer=models.CharField(verbose_name=_('Customer'), choices=customers, max_length=10)
+    )

@@ -141,8 +141,8 @@ class Answers(TranslatableModel):
 
 
 customers = (
-    (_('Clients'), 'clients'),
-    (_('Travelers'), 'travelers')
+    ('clients', _('Clients')),
+    ('travelers', _('Travelers'))
 )
 
 

@@ -148,10 +148,12 @@
                         <ul class="nav navbar-nav c-theme-nav">
                             <li class="c-active c-menu-type-classic">
                                 <a href="{% url 'home' %}" class="c-link dropdown-toggle">{% trans 'Home' %}</a>
-
                             </li>
                             <li class="c-menu-type-classic">
                                 <a href="" class="c-link dropdown-toggle">{% trans 'Portal' %}</a>
+                            </li>
+                            <li class="c-menu-type-classic">
+                                <a href="" class="c-link dropdown-toggle">{% trans 'Advance Search' %}</a>
                             </li>
 
                             <li class="c-search-toggler-wrapper">
@@ -401,7 +403,7 @@
                                  data-bgfit="cover" data-bgrepeat="no-repeat">
                             <!--BEGIN: MAIN TITLE -->
                             <div class="caption customin customout tp-resizeme" data-x="center" data-y="center"
-                                 data-hoffset="-320" data-voffset="-400" data-speed="500" data-start="1000"
+                                 data-hoffset="-100" data-voffset="-335" data-speed="500" data-start="1000"
                                  data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                  data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                  data-easing="Back.easeOut" data-splitin="none" data-splitout="none"
@@ -414,7 +416,7 @@
                             <!--BEGIN: SUB TITLE -->
                             <form action="{% trans 'search_form' %}">{% csrf_token %}
                                 <div class="caption customin customout tp-resizeme" data-x="center" data-y="center"
-                                     data-hoffset="-365" data-voffset="-260" data-speed="500" data-start="1500"
+                                     data-hoffset="-100" data-voffset="-220" data-speed="500" data-start="1500"
                                      data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-easing="Back.easeOut" data-splitin="none" data-splitout="none"
@@ -427,7 +429,7 @@
 
                                 </div>
                                 <div class="caption customin customout tp-resizeme" data-x="center" data-y="center"
-                                     data-hoffset="-365" data-voffset="-180" data-speed="500" data-start="1500"
+                                     data-hoffset="-100" data-voffset="-140" data-speed="500" data-start="1500"
                                      data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-easing="Back.easeOut" data-splitin="none" data-splitout="none"
@@ -438,7 +440,7 @@
 
                                 </div>
                                 <div class="caption customin customout tp-resizeme" data-x="center" data-y="center"
-                                     data-hoffset="-412" data-voffset="-95" data-speed="500" data-start="1500"
+                                     data-hoffset="-148" data-voffset="-55" data-speed="500" data-start="1500"
                                      data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                      data-easing="Back.easeOut" data-splitin="none" data-splitout="none"
@@ -451,7 +453,7 @@
                                 <!--END -->
                                 <!--BEGIN: ACTION BUTTON -->
                                 <div class="caption randomrotateout tp-resizeme" data-x="center" data-y="center"
-                                     data-hoffset="-445" data-voffset="50" data-speed="500" data-start="2000"
+                                     data-hoffset="-100" data-voffset="40" data-speed="500" data-start="2000"
                                      data-easing="Back.easeOut">
                                     <input type="button"
                                            class="c-btn-square c-btn-bold c-btn-border-2x c-btn-black c-btn-uppercase c-font-36"
@@ -526,21 +528,21 @@
                             </div>
                             <ul class="c-links">
                                 <li>
-                                    <a href="#">Home</a>
+                                    <a href="#">{% trans 'Home' %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">About</a>
+                                    <a href="#">{% trans 'Advice for clients' %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Terms</a>
+                                    <a href="#">{% trans 'Advice for travelers' %}</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact</a>
+                                    <a href="#">{% trans 'Contact' %}</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="c-container">
                             <div class="c-content-title-1">
                                 <h3 class="c-font-uppercase c-font-bold c-font-white">Latest Posts</h3>
@@ -578,61 +580,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="c-container">
-                            <div class="c-content-title-1">
-                                <h3 class="c-font-uppercase c-font-bold c-font-white">Latest Works</h3>
-                                <div class="c-line-left hide">
-                                </div>
-                            </div>
-                            <ul class="c-works">
-                                <li class="c-first">
-                                    <a href="#"><img src="assets/base/img/content/stock/015.jpg" alt=""
-                                                     class="img-responsive"/></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/base/img/content/stock/012.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                                <li class="c-last">
-                                    <a href="#"><img src="assets/base/img/content/stock/12.jpg" alt=""
-                                                     class="img-responsive"/></a>
-                                </li>
-                            </ul>
-                            <ul class="c-works">
-                                <li class="c-first">
-                                    <a href="#"><img src="assets/base/img/content/stock/014.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/base/img/content/stock/011.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                                <li class="c-last">
-                                    <a href="#"><img src="assets/base/img/content/stock/15.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                            </ul>
-                            <ul class="c-works">
-                                <li class="c-first">
-                                    <a href="#"><img src="assets/base/img/content/stock/015.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/base/img/content/stock/013.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                                <li class="c-last">
-                                    <a href="#"><img src="assets/base/img/content/stock/13.jpg" class="img-responsive"
-                                                     alt=""/></a>
-                                </li>
-                            </ul>
-                            <a href="#"
-                               class="btn btn-md c-btn-border-1x c-theme-btn c-btn-uppercase c-btn-square c-btn-bold c-read-more hide">View
-                                More</a>
-                        </div>
+                    <div class="col-md-4">
+
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="c-container c-last">
                             <div class="c-content-title-1">
                                 <h3 class="c-font-uppercase c-font-bold c-font-white">Find us</h3>
@@ -675,8 +626,8 @@
         </div>
         <div class="c-postfooter">
             <div class="container">
-                <p class="c-font-oswald c-font-14">
-                    Copyright &copy; JANGO Inc.
+                <p class="c-font-oswald c-font-14 c-center">
+                    Develop by T.O.W. PEB
                 </p>
             </div>
         </div>

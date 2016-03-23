@@ -75,7 +75,7 @@ class User(models.Model):
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     photo = models.ImageField(upload_to='users/%Y/%m/%d',
-                              blank=True)
+                              blank=True, null=True)
 
     def __str__(self):
         return self.user.username

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import KeyWord, Travels, User, ContainedIn, Categories
-from parler.admin import TranslatableAdmin
+from .models import KeyWord, Travels, User, ContainedIn, Categories, Cities, Countries
+from parler.admin import TranslatableAdmin, TranslatableStackedInline
 from sorl.thumbnail.admin import AdminImageMixin
 from django.utils.translation import gettext_lazy as _
 
@@ -30,8 +30,19 @@ class ContainedInAdmin(AdminImageMixin, admin.ModelAdmin):
     pass
 
 
+class CitiesAdmin(TranslatableStackedInline):
+    model = Cities
+    extra = 3
+
+
+class CoutryAdmin(TranslatableAdmin):
+    list_display = ['name']
+    inlines = [CitiesAdmin]
+
+
 admin.site.register(KeyWord, KeywordAdmin)
 admin.site.register(Travels, TravelsAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(ContainedIn, ContainedInAdmin)
 admin.site.register(Categories, CategoriesAdmin)
+admin.site.register(Countries, CoutryAdmin)

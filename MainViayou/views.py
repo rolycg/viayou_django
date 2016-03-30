@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.utils import translation
+import requests
 
 
 # Create your views here.
@@ -16,6 +17,11 @@ def home(request):
         'hola': 'Hola mUndo'
 
     })
+
+
+def get_cities():
+    res = requests.get('http://restcountries.eu/rest/')
+    print(res)
 
 
 def change_language(request):

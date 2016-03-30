@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGES = (
     ('en', _('English')),
     ('es', _('Spanish')),
+    ('it', _('Italian')),
 )
 
 LANGUAGE_CODE = 'en'
@@ -128,7 +129,8 @@ STATIC_URL = '/static/'
 PARLER_LANGUAGES = {
     None: (
         {'code': 'en'},
-        {'code': 'es'}
+        {'code': 'es'},
+        {'code': 'it'}
     ),
     'default': {
         'fallback': 'en',

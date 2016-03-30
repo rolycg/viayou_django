@@ -155,3 +155,36 @@ class Advices(TranslatableModel):
         text=models.TextField(verbose_name=_('Advice'), max_length=500),
         customer=models.CharField(verbose_name=_('Customer'), choices=customers, max_length=10)
     )
+
+
+class Countries(TranslatableModel):
+    class Meta:
+        verbose_name = _('Country')
+        verbose_name_plural = _('Countries')
+        ordering = ['translations__name']
+
+    translations = TranslatedFields(
+        name=models.CharField(verbose_name=_('Name'), max_length=50, help_text=_('Name of the country')))
+
+    code = models.CharField(verbose_name=_("Code"), max_length=10, help_text=_('Code of the country'), blank=True,
+                            null=True)
+
+    def __str__(self):
+        return str(self.translations.name)
+
+
+class Cities(TranslatableModel):
+    class Meta:
+        verbose_name = _('City')
+        verbose_name_plural = _('Cities')
+        ordering = ['translations__name']
+
+    translations = TranslatedFields(
+        name=models.CharField(verbose_name=_('Name'), max_length=50, help_text=_('Name of the country')))
+
+    country = models.ForeignKey('Countries', related_name='cities')
+
+    code = models.CharField(verbose_name=_("Code"), max_length=10, help_text=_('Code of the city'))
+
+    def __str__(self):
+        return str(self.translations.name)

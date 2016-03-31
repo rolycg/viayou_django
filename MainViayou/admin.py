@@ -1,12 +1,11 @@
 from django.contrib import admin
 from .models import KeyWord, Travels, User, ContainedIn, Categories, Cities, Countries
-from parler.admin import TranslatableAdmin, TranslatableStackedInline
 from sorl.thumbnail.admin import AdminImageMixin
 from django.utils.translation import gettext_lazy as _
 
 
-class KeywordAdmin(TranslatableAdmin):
-    list_display = ['keywords']
+class KeywordAdmin(TranslationOptions):
+    pass
 
 
 class TravelsAdmin(AdminImageMixin, admin.ModelAdmin):
@@ -23,7 +22,7 @@ class UserAdmin(AdminImageMixin, admin.ModelAdmin):
 
 class CategoriesAdmin(TranslatableAdmin):
     filter_horizontal = ['travels']
-    list_display = ['name']
+    #list_display = ['translations__name']
 
 
 class ContainedInAdmin(AdminImageMixin, admin.ModelAdmin):
@@ -36,7 +35,7 @@ class CitiesAdmin(TranslatableStackedInline):
 
 
 class CoutryAdmin(TranslatableAdmin):
-    list_display = ['name']
+    #list_display = ['translation__name']
     inlines = [CitiesAdmin]
 
 

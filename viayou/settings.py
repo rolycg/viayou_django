@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sorl.thumbnail',
-    'parler',
+    'modeltranslation',
     'MainViayou'
 ]
 
@@ -109,6 +109,12 @@ LANGUAGES = (
     ('en', _('English')),
     ('es', _('Spanish')),
     ('it', _('Italian')),
+)
+
+MODELTRANSLATION_LANGUAGES = ('en', 'de', 'it')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en',)
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'MainViayou.translation',
 )
 
 LANGUAGE_CODE = 'en'

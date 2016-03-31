@@ -14,13 +14,16 @@ def parse_xml_cites(tree):
     continents = tree.SimpleGeoName.Children.find_all('SimpleGeoName', recursive=False)
     for continent in continents:
         for country in continent.Children.find_all('SimpleGeoName', recursive=False):
-            c = models.Countries.objects.create(language_code='en', name=country.Name.string,
+            c = models.Countries.objects.create(name=country.Name.string,
                                                 code=country.CountryCode.string)
-            c.set_current_language('es')
-            c.name = country.LocalNameEs.string
             c.save()
-            # for cities in country.Children.find_all('SimpleGeoName', recursive=False):
-            #    yield country.Name.string, cities.Name.string
+            # c.translate('es')
+            # c.name = country.LocalNameES.string
+            # c.save()
+            break
+        break
+        # for cities in country.Children.find_all('SimpleGeoName', recursive=False):
+        #    yield country.Name.string, cities.Name.string
 
 
 class Command(BaseCommand):

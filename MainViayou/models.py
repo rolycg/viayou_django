@@ -12,7 +12,7 @@ from django.core.exceptions import ValidationError
 # Create your models here.
 
 
-class KeyWord(TranslatableModel):
+class KeyWord():
     class Meta:
         verbose_name = _('Keyword')
         verbose_name_plural = _('Keywords')
@@ -44,7 +44,7 @@ class KeyWord(TranslatableModel):
         super(KeyWord, self).save(args, kwargs)
 
     def __str__(self):
-        return self.keywords
+        return self.keywords if self.keywords else ''
 
 
 class Travels(models.Model):
@@ -170,7 +170,7 @@ class Countries(TranslatableModel):
                             null=True)
 
     def __str__(self):
-        return str(self.translations.name)
+        return self.name if self.name else ''
 
 
 class Cities(TranslatableModel):
@@ -187,4 +187,4 @@ class Cities(TranslatableModel):
     code = models.CharField(verbose_name=_("Code"), max_length=10, help_text=_('Code of the city'))
 
     def __str__(self):
-        return str(self.translations.name)
+        return str(self.name)
